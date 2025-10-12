@@ -60,10 +60,10 @@ logs/
 # Environment variables
 .env
 
-# Models (large files)
-models/*.pt
-models/*.pth
-*.weights
+# Models (large files - tracked by Git LFS)
+# models/*.pt files are tracked by Git LFS via .gitattributes
+# models/*.pth
+# *.weights
 
 # Test files
 .pytest_cache/

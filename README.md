@@ -1,6 +1,11 @@
-# YOLOv8n-SPTS: YOLOv8 with Multiple Attention Mechanisms
+# YOLOv8n-SPTS: Traffic Scene Small Target Detection Method for Autonomous Driving
 
 <div align="center">
+
+[![Paper](https://img.shields.io/badge/Paper-PDF-red.svg)](./Traffic%20Scene%20Small%20Target%20Detection%20Method%20Based%20on%20YOLOv8n-SPTS%20Model%20for%20Autonomous%20Driving.pdf)
+[![License](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.8+-brightgreen.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-1.8+-orange.svg)](https://pytorch.org/)
 
 [English](#english) | [中文](#中文)
 
@@ -12,7 +17,9 @@
 
 ### 📋 Overview
 
-**YOLOv8n-SPTS** is an enhanced version of YOLOv8 that integrates multiple attention mechanisms to improve object detection performance. SPTS stands for **Spatial Pyramid Transformer with Self-attention**, which combines various attention modules to capture multi-scale features more effectively.
+**YOLOv8n-SPTS** is an enhanced version of YOLOv8 specifically designed for **small target detection in traffic scenes for autonomous driving**. SPTS stands for **Spatial Pyramid Transformer with Self-attention**, which integrates multiple attention mechanisms to capture multi-scale features more effectively, particularly for detecting small objects in complex traffic environments.
+
+This project is based on the paper: **"Traffic Scene Small Target Detection Method Based on YOLOv8n-SPTS Model for Autonomous Driving"**.
 
 ### ✨ Key Features
 
@@ -23,14 +30,22 @@
   - **Shuffle Attention**: Combines channel and spatial attention with channel shuffling
 
 - ⚡ **Enhanced Detection Performance**
-  - Improved feature extraction capabilities
-  - Better multi-scale object detection
+  - Improved feature extraction capabilities for small targets
+  - Better multi-scale object detection in traffic scenes
   - Enhanced feature representation through attention fusion
+  - Optimized for autonomous driving scenarios
+
+- 🚗 **Traffic Scene Specialization**
+  - Designed for small object detection (pedestrians, traffic signs, distant vehicles)
+  - Robust performance in complex traffic environments
+  - Real-time detection capability for autonomous driving
+  - High accuracy on occluded and partially visible objects
 
 - 🔧 **Complete Framework**
   - Full training, validation, and prediction pipeline
   - Compatible with YOLOv8 ecosystem
   - Easy to use Python API and CLI
+  - Pre-trained models available via Git LFS
 
 ### 🏗️ Architecture
 
@@ -59,10 +74,22 @@ Based on the training logs in `runs/detect/train2/`:
 
 #### Installation
 
-1. **Clone the repository**
+1. **Clone the repository (with Git LFS for model files)**
 ```bash
+# Install Git LFS first (if not already installed)
+# macOS: brew install git-lfs
+# Ubuntu: sudo apt-get install git-lfs
+# Windows: Download from https://git-lfs.github.com/
+
+# Initialize Git LFS
+git lfs install
+
+# Clone the repository with model files
 git clone git@github.com:SonghanWu/yolov8n-SPTS.git
 cd yolov8n-SPTS
+
+# Pull LFS files (model weights and paper PDF)
+git lfs pull
 ```
 
 2. **Create virtual environment**
@@ -73,10 +100,21 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 3. **Install dependencies**
 ```bash
-pip install ultralytics
-# or
 pip install -r requirements.txt
+# or
+pip install ultralytics
 ```
+
+#### Download Pre-trained Models
+
+The pre-trained model weights are stored using Git LFS in the `models/` directory:
+- `YOLOv8n-SPTS.pt` - Main SPTS model
+- `yolov8-CFF.pt` - CFF Attention variant
+- `yolov8-ECA.pt` - ECA Attention variant
+- `yolov8-SE.pt` - SE Attention variant
+- `yolov8-SA.pt` - Shuffle Attention variant
+
+If you cloned without Git LFS, download models manually from [Releases](https://github.com/SonghanWu/yolov8n-SPTS/releases).
 
 #### Usage
 
@@ -191,7 +229,9 @@ This project is based on [Ultralytics YOLOv8](https://github.com/ultralytics/ult
 
 ### 📋 项目简介
 
-**YOLOv8n-SPTS** 是 YOLOv8 的增强版本，集成了多种注意力机制以提升目标检测性能。SPTS 代表**空间金字塔变换器与自注意力机制**，结合了多种注意力模块来更有效地捕获多尺度特征。
+**YOLOv8n-SPTS** 是专门为**自动驾驶交通场景中的小目标检测**设计的 YOLOv8 增强版本。SPTS 代表**空间金字塔变换器与自注意力机制**，集成了多种注意力机制来更有效地捕获多尺度特征，特别是针对复杂交通环境中的小目标检测进行了优化。
+
+本项目基于论文：**《基于YOLOv8n-SPTS模型的自动驾驶交通场景小目标检测方法》**。
 
 ### ✨ 核心特性
 
@@ -202,14 +242,22 @@ This project is based on [Ultralytics YOLOv8](https://github.com/ultralytics/ult
   - **Shuffle 注意力**：结合通道和空间注意力，通过通道混洗增强特征交互
 
 - ⚡ **增强的检测性能**
-  - 改进的特征提取能力
-  - 更好的多尺度目标检测
+  - 针对小目标改进的特征提取能力
+  - 交通场景中更好的多尺度目标检测
   - 通过注意力融合增强特征表示
+  - 针对自动驾驶场景优化
+
+- 🚗 **交通场景专业化**
+  - 专为小目标检测设计（行人、交通标志、远处车辆）
+  - 在复杂交通环境中表现稳健
+  - 满足自动驾驶实时检测需求
+  - 对遮挡和部分可见物体具有高精度
 
 - 🔧 **完整框架**
   - 完整的训练、验证和预测流程
   - 与 YOLOv8 生态系统兼容
   - 易用的 Python API 和命令行接口
+  - 通过 Git LFS 提供预训练模型
 
 ### 🏗️ 网络架构
 
@@ -238,10 +286,22 @@ YOLOv8 骨干网络
 
 #### 安装
 
-1. **克隆仓库**
+1. **克隆仓库（使用 Git LFS 下载模型文件）**
 ```bash
+# 首先安装 Git LFS（如果尚未安装）
+# macOS: brew install git-lfs
+# Ubuntu: sudo apt-get install git-lfs
+# Windows: 从 https://git-lfs.github.com/ 下载
+
+# 初始化 Git LFS
+git lfs install
+
+# 克隆仓库及模型文件
 git clone git@github.com:SonghanWu/yolov8n-SPTS.git
 cd yolov8n-SPTS
+
+# 拉取 LFS 文件（模型权重和论文PDF）
+git lfs pull
 ```
 
 2. **创建虚拟环境**
@@ -252,10 +312,21 @@ source venv/bin/activate  # Windows 系统: venv\Scripts\activate
 
 3. **安装依赖**
 ```bash
-pip install ultralytics
-# 或者
 pip install -r requirements.txt
+# 或者
+pip install ultralytics
 ```
+
+#### 下载预训练模型
+
+预训练模型权重通过 Git LFS 存储在 `models/` 目录中：
+- `YOLOv8n-SPTS.pt` - 主要 SPTS 模型
+- `yolov8-CFF.pt` - CFF 注意力变体
+- `yolov8-ECA.pt` - ECA 注意力变体
+- `yolov8-SE.pt` - SE 注意力变体
+- `yolov8-SA.pt` - Shuffle 注意力变体
+
+如果克隆时未使用 Git LFS，请从 [Releases](https://github.com/SonghanWu/yolov8n-SPTS/releases) 手动下载模型。
 
 #### 使用方法
 
