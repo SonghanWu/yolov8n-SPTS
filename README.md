@@ -218,6 +218,14 @@ If you use this project in your research, please consider citing:
 
 This project is based on [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics) and follows the AGPL-3.0 license.
 
+**Important Notice:**
+- The SPTS (Spatial Pyramid Transformer with Self-attention) architecture and the integration of multiple attention mechanisms for traffic scene detection are original contributions
+- This work is associated with the research paper: "Traffic Scene Small Target Detection Method Based on YOLOv8n-SPTS Model for Autonomous Driving"
+- For commercial use or proprietary applications, please contact the authors for licensing arrangements
+
+**Patent/IP Notice:** 
+The novel attention mechanism integration approach described in this repository may be subject to patent protection. Users should verify the IP status before commercial deployment.
+
 ### 🙏 Acknowledgments
 
 - [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics) for the base framework
@@ -429,6 +437,14 @@ yolov8n-SPTS/
 ### 📄 许可证
 
 本项目基于 [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)，遵循 AGPL-3.0 许可证。
+
+**重要声明：**
+- SPTS（空间金字塔变换器与自注意力）架构以及针对交通场景检测的多注意力机制集成方案为原创性贡献
+- 本工作与研究论文《基于YOLOv8n-SPTS模型的自动驾驶交通场景小目标检测方法》相关
+- 如需商业使用或专有应用，请联系作者获取授权许可
+
+**专利/知识产权声明：**
+本仓库中描述的新型注意力机制集成方法可能受到专利保护。用户在商业部署前应核实知识产权状态。
 
 ### 🙏 致谢
 
