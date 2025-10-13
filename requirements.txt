@@ -6,6 +6,9 @@ ultralytics>=8.0.0
 torch>=1.8.0
 torchvision>=0.9.0
 
+# Deep learning utilities
+timm>=0.9.0  # PyTorch Image Models (required for SPPFCSPC module)
+
 # Data processing
 numpy>=1.21.0
 opencv-python>=4.6.0
