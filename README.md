@@ -61,7 +61,25 @@ YOLOv8 Backbone
 
 Each attention module enhances the feature representation at different scales, leading to improved detection accuracy.
 
-### 📊 Training Results
+### 📊 Performance Comparison
+
+#### Detection Results Comparison
+
+<div align="center">
+
+| Original YOLOv8n | YOLOv8n-SPTS (Ours) |
+|:---:|:---:|
+| ![YOLOv8n Original](demo_yolov8_original.jpg) | ![YOLOv8n-SPTS](demo_yolov8_spts.jpg) |
+| **0 objects detected** ❌ | **Multiple small objects detected** ✅ |
+
+</div>
+
+**Key Improvements:**
+- ✅ Original YOLOv8n **fails to detect any small targets** in complex traffic scenes
+- ✅ YOLOv8n-SPTS **successfully detects pedestrians, vehicles, and other small objects**
+- ✅ Demonstrates significant improvement in **small target detection capability**
+
+#### Training Results
 
 Based on the training logs in `runs/detect/train2/`:
 
@@ -281,7 +299,25 @@ YOLOv8 骨干网络
 
 每个注意力模块在不同尺度上增强特征表示，从而提高检测精度。
 
-### 📊 训练结果
+### 📊 性能对比
+
+#### 检测结果对比
+
+<div align="center">
+
+| 原始 YOLOv8n | YOLOv8n-SPTS (本项目) |
+|:---:|:---:|
+| ![YOLOv8n Original](demo_yolov8_original.jpg) | ![YOLOv8n-SPTS](demo_yolov8_spts.jpg) |
+| **未检测到任何目标** ❌ | **成功检测多个小目标** ✅ |
+
+</div>
+
+**关键改进：**
+- ✅ 原始 YOLOv8n 在复杂交通场景中**无法检测到任何小目标**
+- ✅ YOLOv8n-SPTS **成功检测到行人、车辆等多个小目标**
+- ✅ 展示了**小目标检测能力的显著提升**
+
+#### 训练结果
 
 基于 `runs/detect/train2/` 中的训练日志：
 
