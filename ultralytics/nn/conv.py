@@ -150,9 +150,18 @@ class SPDConv(nn.Module):
 
     default_act = nn.SiLU()  # default activation
 
-    def __init__(self, c1, c2, k=3, s=1, p=1, g=1, d=1, act=True, bn=False, deploy=False):
+    def __init__(self, c1, c2, k=3, s=1, p=None, g=1, d=1, act=True, bn=False, deploy=False):
         super().__init__()
-        assert k == 3 and p == 1
+        assert k == 3, "SPDConv only supports kernel size 3"
+        # Auto-calculate padding if not specified, use autopad
+        if p is None:
+            p = autopad(k, p, d)
+        # For stride=2 case, padding should be 1
+        # For stride=1 case, padding should also be 1
+        if s == 2:
+            p = 1
+        elif p != 1:
+            p = 1  # Force padding=1 for compatibility
         self.g = g
         self.c1 = c1
         self.c2 = c2
